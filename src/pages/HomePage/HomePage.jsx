@@ -12,7 +12,7 @@ const HomePage = () => {
         setLoading(true);
         const data = await fetchTrandingMovies();
         setMovies(data);
-        console.log(data);
+        // console.log(data);
         setLoading(false);
       } catch (error) {
         setError(true);

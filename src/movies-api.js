@@ -18,8 +18,8 @@ export const fetchTrandingMovies = async () => {
   return response.data.results;
 };
 
-export const fetchMovieDetails = async ({ id }) => {
+export const fetchMovieDetails = async (id) => {
   const response = await axios.get(`/movie/${id}?language=en-US'`, options);
-  // return response.data.results;
-  console.log(response);
+  return response.data;
+  // console.log(response.data);
 };
