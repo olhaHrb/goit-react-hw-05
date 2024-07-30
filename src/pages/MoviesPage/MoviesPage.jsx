@@ -1,10 +1,11 @@
 import Navigation from "../../components/Navigation/Navigation";
+import MovieSearch from "../../components/MovieSearch/MovieSearch";
 
 const MoviesPage = () => {
   return (
     <div>
       <Navigation></Navigation>
-      <p>Movies Page</p>
+      <MovieSearch />
     </div>
   );
 };

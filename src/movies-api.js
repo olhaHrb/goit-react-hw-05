@@ -21,5 +21,12 @@ export const fetchTrandingMovies = async () => {
 export const fetchMovieDetails = async (id) => {
   const response = await axios.get(`/movie/${id}?language=en-US'`, options);
   return response.data;
-  // console.log(response.data);
+};
+
+export const fetchMovieCast = async (id) => {
+  const response = await axios.get(
+    `/movie/${id}/credits?language=en-US`,
+    options
+  );
+  return response.data;
 };
