@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchMovieDetails, fetchMovieCast } from "../../movies-api";
+import { fetchMovieDetails } from "../../movies-api";
 import Navigation from "../../components/Navigation/Navigation";
 import { useParams, NavLink, Outlet } from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
@@ -7,7 +7,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
-  const [cast, setCast] = useState(null);
+  // const [cast, setCast] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const params = useParams();
@@ -27,20 +27,20 @@ const MovieDetailsPage = () => {
     fetchMovie();
   }, [params.movieId]);
 
-  useEffect(() => {
-    async function fetchCast() {
-      try {
-        const data = await fetchMovieCast(params.movieId);
-        setCast(data.cast);
-        // console.log(data.cast);
-      } catch (error) {
-        setError(true);
-      }
-    }
-    fetchCast();
-  }, [params.movieId]);
+  // useEffect(() => {
+  //   async function fetchCast() {
+  //     try {
+  //       const data = await fetchMovieCast(params.movieId);
+  //       setCast(data.cast);
+  //       // console.log(data.cast);
+  //     } catch (error) {
+  //       setError(true);
+  //     }
+  //   }
+  //   fetchCast();
+  // }, [params.movieId]);
 
-  console.log(cast);
+  // console.log(cast);
 
   return (
     <div>
@@ -86,9 +86,7 @@ const MovieDetailsPage = () => {
             <p>Additional information</p>
             <ul>
               <li>
-                <NavLink to="cast" data={cast}>
-                  Cast
-                </NavLink>
+                <NavLink to="cast">Cast</NavLink>
               </li>
               <li>
                 <NavLink to="reviews">Reviews</NavLink>
