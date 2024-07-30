@@ -30,3 +30,11 @@ export const fetchMovieCast = async (id) => {
   );
   return response.data;
 };
+
+export const fetchMovieReviews = async (id) => {
+  const response = await axios.get(
+    `/movie/${id}/reviews?language=en-US&page=1`,
+    options
+  );
+  return response.data;
+};

@@ -7,7 +7,6 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
-  // const [cast, setCast] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const params = useParams();
@@ -18,7 +17,6 @@ const MovieDetailsPage = () => {
         setLoading(true);
         const data = await fetchMovieDetails(params.movieId);
         setMovie(data);
-        // console.log(data);
         setLoading(false);
       } catch (error) {
         setError(true);
@@ -26,21 +24,6 @@ const MovieDetailsPage = () => {
     }
     fetchMovie();
   }, [params.movieId]);
-
-  // useEffect(() => {
-  //   async function fetchCast() {
-  //     try {
-  //       const data = await fetchMovieCast(params.movieId);
-  //       setCast(data.cast);
-  //       // console.log(data.cast);
-  //     } catch (error) {
-  //       setError(true);
-  //     }
-  //   }
-  //   fetchCast();
-  // }, [params.movieId]);
-
-  // console.log(cast);
 
   return (
     <div>
