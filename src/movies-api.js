@@ -18,6 +18,14 @@ export const fetchTrandingMovies = async () => {
   return response.data.results;
 };
 
+export const fetchSearchMovies = async (query) => {
+  const response = await axios.get(
+    `/search/movie?query=${query}&include_adult=false&language=en-US&page=1`,
+    options
+  );
+  return response.data.results;
+};
+
 export const fetchMovieDetails = async (id) => {
   const response = await axios.get(`/movie/${id}?language=en-US'`, options);
   return response.data;

@@ -1,11 +1,19 @@
-import css from "./MovieSearch.module.css";
+// import css from "./MovieSearch.module.css";
 
-const MovieSearch = () => {
+const MovieSearch = ({ onSearch }) => {
+  const handleSearch = (evt) => {
+    evt.preventDefault();
+    const form = evt.target;
+    const { query } = form.elements;
+    onSearch(query.value);
+    // console.log(query.value);
+    form.reset();
+  };
   return (
-    <div className={css.container}>
-      <input type="text"></input>
+    <form onSubmit={handleSearch}>
+      <input type="text" name="query" />
       <button type="submit">Search</button>
-    </div>
+    </form>
   );
 };
 

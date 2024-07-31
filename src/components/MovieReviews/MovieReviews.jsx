@@ -24,9 +24,12 @@ const MovieReviews = () => {
     <div>
       {reviews !== null && (
         <ul>
-          {reviews.map(({ id, content }) => (
+          {reviews.map(({ id, content, author }) => (
             <li key={id}>
-              <div className={css.item}>{content}</div>
+              <div className={css.item}>
+                <h3>Author: {author}</h3>
+                <p>{content}</p>
+              </div>
             </li>
           ))}
         </ul>

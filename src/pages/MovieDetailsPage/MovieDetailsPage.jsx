@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { fetchMovieDetails } from "../../movies-api";
 import Navigation from "../../components/Navigation/Navigation";
-import { useParams, NavLink, Outlet } from "react-router-dom";
+import { useParams, NavLink, Link, Outlet } from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
 import { FiArrowLeft } from "react-icons/fi";
 
@@ -35,10 +35,13 @@ const MovieDetailsPage = () => {
       {movie && (
         <div>
           <Navigation></Navigation>
-          <button className={css.button}>
-            <FiArrowLeft />
-            Go back
-          </button>
+          <Link to="/">
+            <button className={css.button}>
+              <FiArrowLeft />
+              Go back
+            </button>
+          </Link>
+
           <div className={css.container}>
             <img
               src={
