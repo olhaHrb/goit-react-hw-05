@@ -1,7 +1,7 @@
 import Navigation from "../../components/Navigation/Navigation";
 import MovieSearch from "../../components/MovieSearch/MovieSearch";
 import MovieList from "../../components/MovieList/MovieList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchSearchMovies } from "../../movies-api";
 import { useSearchParams } from "react-router-dom";
 
@@ -15,7 +15,10 @@ const MoviesPage = () => {
   const searchMovies = (value) => {
     searchParams.set("query", value);
     setSearchParams(searchParams);
-    console.log(searchValue);
+    // console.log(searchValue);
+  };
+
+  useEffect(() => {
     async function fetchMovies() {
       try {
         setLoading(true);
@@ -28,7 +31,7 @@ const MoviesPage = () => {
       }
     }
     fetchMovies();
-  };
+  }, [searchValue]);
 
   return (
     <div>

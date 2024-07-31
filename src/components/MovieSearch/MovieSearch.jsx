@@ -1,4 +1,4 @@
-// import css from "./MovieSearch.module.css";
+import css from "./MovieSearch.module.css";
 
 const MovieSearch = ({ onSearch }) => {
   const handleSearch = (evt) => {
@@ -10,7 +10,7 @@ const MovieSearch = ({ onSearch }) => {
     form.reset();
   };
   return (
-    <form onSubmit={handleSearch}>
+    <form className={css.container} onSubmit={handleSearch}>
       <input type="text" name="query" />
       <button type="submit">Search</button>
     </form>

@@ -1,7 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fetchMovieDetails } from "../../movies-api";
 import Navigation from "../../components/Navigation/Navigation";
-import { useParams, NavLink, Link, Outlet } from "react-router-dom";
+import {
+  useParams,
+  NavLink,
+  Link,
+  Outlet,
+  useLocation,
+} from "react-router-dom";
 import css from "./MovieDetailsPage.module.css";
 import { FiArrowLeft } from "react-icons/fi";
 
@@ -10,6 +16,9 @@ const MovieDetailsPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const params = useParams();
+  const location = useLocation();
+  const backLink = useRef(location.state ?? "/");
+  console.log(location);
 
   useEffect(() => {
     async function fetchMovie() {
@@ -35,7 +44,7 @@ const MovieDetailsPage = () => {
       {movie && (
         <div>
           <Navigation></Navigation>
-          <Link to="/">
+          <Link to={backLink.current}>
             <button className={css.button}>
               <FiArrowLeft />
               Go back
